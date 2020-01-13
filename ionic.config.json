@@ -1,0 +1,7 @@
+{
+  "name": "photo-gallery-capacitor-react",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
