@@ -1,0 +1,11 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "photo-gallery-capacitor-react",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {},
+  "server": {
+    "url": "http://192.168.7.44:8100"
+  }
+}
