@@ -4,28 +4,28 @@
   "private": true,
   "dependencies": {
     "@capacitor/android": "^1.4.0",
-    "@capacitor/core": "1.4.0",
+    "@capacitor/core": "^1.4.0",
     "@capacitor/ios": "^1.4.0",
     "@ionic/pwa-elements": "^1.4.1",
-    "@ionic/react": "^4.11.0",
+    "@ionic/react": "^5.0.0-rc.2",
     "@ionic/react-hooks": "0.0.6",
-    "@ionic/react-router": "^4.11.0",
-    "@testing-library/jest-dom": "^4.2.4",
+    "@ionic/react-router": "^5.0.0-rc.2",
+    "@testing-library/jest-dom": "^5.0.2",
     "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^8.0.3",
-    "@types/jest": "^24.0.25",
-    "@types/node": "^12.12.24",
-    "@types/react": "^16.9.17",
-    "@types/react-dom": "^16.9.4",
+    "@testing-library/user-event": "^8.1.0",
+    "@types/jest": "^25.1.1",
+    "@types/node": "^13.5.2",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
     "@types/react-router": "^5.1.4",
     "@types/react-router-dom": "^5.1.3",
-    "ionicons": "^4.6.3",
+    "ionicons": "^5.0.0-17",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0",
-    "typescript": "3.7.4"
+    "react-scripts": "^3.3.0",
+    "typescript": "^3.7.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -49,7 +49,7 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "1.4.0"
+    "@capacitor/cli": "^1.4.0"
   },
   "description": "An Ionic project"
 }
