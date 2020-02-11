@@ -15,6 +15,11 @@ const Tab2: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
+      <IonHeader collapse="condense">
+          <IonToolbar>
+            <IonTitle size="large">Photo Gallery</IonTitle>
+          </IonToolbar>
+        </IonHeader>
         <IonGrid>
           <IonRow>
             {photos.map((photo, index) => (
