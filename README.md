@@ -29,7 +29,7 @@ After the user navigates to Tab 2 (Photos), they can tap/click on the camera but
 
 0) Install Ionic if needed: `npm install -g @ionic/cli`.
 1) Clone this repository.
-2) In a terminal, change directory into the repo: `cd photo-gallery-capacitor-ng`.
+2) In a terminal, change directory into the repo: `cd photo-gallery-capacitor-react`.
 3) Install all packages: `npm install`.
 4) Run on the web: `ionic serve`.
 5) Run on iOS or Android: See [here](https://ionicframework.com/docs/building/running).
