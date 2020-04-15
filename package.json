@@ -1,6 +1,6 @@
 {
   "name": "photo-gallery-capacitor-react",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@capacitor/android": "^1.4.0",
@@ -51,5 +51,5 @@
   "devDependencies": {
     "@capacitor/cli": "^1.4.0"
   },
-  "description": "An Ionic project"
+  "description": "Build a photo gallery app that runs on iOS, Android, and the web - with just one codebase."
 }
