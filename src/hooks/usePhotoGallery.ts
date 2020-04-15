@@ -57,7 +57,7 @@ export function usePhotoGallery() {
 
   };
 
-  const savePicture = async (photo: CameraPhoto, fileName: string) => {
+  const savePicture = async (photo: CameraPhoto, fileName: string): Promise<Photo> => {
     let base64Data: string;
     // "hybrid" will detect Cordova or Capacitor;
     if (isPlatform('hybrid')) {
