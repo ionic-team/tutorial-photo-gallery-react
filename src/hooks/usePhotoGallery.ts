@@ -16,7 +16,7 @@ export function usePhotoGallery() {
 
   useEffect(() => {
     const loadSaved = async () => {
-      const photosString = await get('photos');
+      const photosString = await get(PHOTO_STORAGE);
       const photosInStorage = (photosString ? JSON.parse(photosString) : []) as Photo[];
       // If running on the web...
       if (!isPlatform('hybrid')) {
