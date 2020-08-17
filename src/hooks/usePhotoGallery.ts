@@ -11,7 +11,7 @@ export function usePhotoGallery() {
 
   const [photos, setPhotos] = useState<Photo[]>([]);
   const { getPhoto } = useCamera();
-  const { deleteFile, getUri, readFile, writeFile } = useFilesystem();
+  const { deleteFile, readFile, writeFile } = useFilesystem();
   const { get, set } = useStorage();
 
   useEffect(() => {
