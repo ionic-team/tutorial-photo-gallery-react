@@ -25,8 +25,8 @@ export function usePhotoGallery() {
             path: photo.filepath,
             directory: FilesystemDirectory.Data
           });
-          // Web platform only: Save the photo into the base64 field
-          photo.base64 = `data:image/jpeg;base64,${file.data}`;
+          // Web platform only: Load the photo as base64 data
+          photo.webviewPath = `data:image/jpeg;base64,${file.data}`;
         }
       }
       setPhotos(photosInStorage);
@@ -44,17 +44,7 @@ export function usePhotoGallery() {
     const savedFileImage = await savePicture(cameraPhoto, fileName);
     const newPhotos = [savedFileImage, ...photos];
     setPhotos(newPhotos);
-    set(PHOTO_STORAGE,
-      isPlatform('hybrid')
-        ? JSON.stringify(newPhotos)
-        : JSON.stringify(newPhotos.map(p => {
-          // Don't save the base64 representation of the photo data, 
-          // since it's already saved on the Filesystem
-          const photoCopy = { ...p };
-          delete photoCopy.base64;
-          return photoCopy;
-        })));
-
+    set(PHOTO_STORAGE, JSON.stringify(newPhotos));
   };
 
   const savePicture = async (photo: CameraPhoto, fileName: string): Promise<Photo> => {
@@ -118,6 +108,5 @@ export function usePhotoGallery() {
 export interface Photo {
   filepath: string;
   webviewPath?: string;
-  base64?: string;
 }
 
