@@ -3,12 +3,14 @@
   "version": "2.0.0",
   "private": true,
   "dependencies": {
-    "@capacitor/android": "^2.0.1",
-    "@capacitor/core": "^2.0.1",
-    "@capacitor/ios": "^2.0.1",
-    "@ionic/pwa-elements": "^1.5.2",
+    "@capacitor/android": "^3.0.0",
+    "@capacitor/camera": "^1.0.0",
+    "@capacitor/core": "^3.0.0",
+    "@capacitor/filesystem": "^1.0.0",
+    "@capacitor/ios": "^3.0.0",
+    "@capacitor/storage": "^1.0.0",
+    "@ionic/pwa-elements": "^3.0.2",
     "@ionic/react": "^5.0.7",
-    "@ionic/react-hooks": "0.0.6",
     "@ionic/react-router": "^5.0.7",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.2",
@@ -48,7 +50,7 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "^2.0.1",
+    "@capacitor/cli": "^3.0.0",
     "react-scripts": "3.4.1"
   },
   "description": "Build a photo gallery app that runs on iOS, Android, and the web - with just one codebase."

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonFab, IonFabButton, IonIcon, IonGrid, IonRow, IonCol, IonImg, IonActionSheet } from '@ionic/react';
 import { camera, trash, close } from 'ionicons/icons';
-import { usePhotoGallery, Photo } from '../hooks/usePhotoGallery';
+import { usePhotoGallery, UserPhoto } from '../hooks/usePhotoGallery';
 
 const Tab2: React.FC = () => {
   const { deletePhoto, photos, takePhoto } = usePhotoGallery();
-  const [photoToDelete, setPhotoToDelete] = useState<Photo>();
+  const [photoToDelete, setPhotoToDelete] = useState<UserPhoto>();
 
   return (
     <IonPage>

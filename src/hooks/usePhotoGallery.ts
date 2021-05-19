@@ -1,29 +1,28 @@
 import { useState, useEffect } from "react";
-import { useCamera } from '@ionic/react-hooks/camera';
-import { useFilesystem, base64FromPath } from '@ionic/react-hooks/filesystem';
-import { useStorage } from '@ionic/react-hooks/storage';
 import { isPlatform } from '@ionic/react';
-import { CameraResultType, CameraSource, CameraPhoto, Capacitor, FilesystemDirectory } from "@capacitor/core";
+
+
+import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
+import { Filesystem, Directory } from '@capacitor/filesystem'
+import { Storage } from '@capacitor/storage'
+import { Capacitor } from '@capacitor/core';
 
 const PHOTO_STORAGE = "photos";
-
 export function usePhotoGallery() {
 
-  const [photos, setPhotos] = useState<Photo[]>([]);
-  const { getPhoto } = useCamera();
-  const { deleteFile, readFile, writeFile } = useFilesystem();
-  const { get, set } = useStorage();
+  const [photos, setPhotos] = useState<UserPhoto[]>([]);
 
   useEffect(() => {
     const loadSaved = async () => {
-      const photosString = await get(PHOTO_STORAGE);
-      const photosInStorage = (photosString ? JSON.parse(photosString) : []) as Photo[];
+      const {value} = await Storage.get({key: PHOTO_STORAGE });
+
+      const photosInStorage = (value ? JSON.parse(value) : []) as UserPhoto[];
       // If running on the web...
       if (!isPlatform('hybrid')) {
         for (let photo of photosInStorage) {
-          const file = await readFile({
+          const file = await Filesystem.readFile({
             path: photo.filepath,
-            directory: FilesystemDirectory.Data
+            directory: Directory.Data
           });
           // Web platform only: Load the photo as base64 data
           photo.webviewPath = `data:image/jpeg;base64,${file.data}`;
@@ -32,10 +31,10 @@ export function usePhotoGallery() {
       setPhotos(photosInStorage);
     };
     loadSaved();
-  }, [get, readFile]);
+  }, []);
 
   const takePhoto = async () => {
-    const cameraPhoto = await getPhoto({
+    const cameraPhoto = await Camera.getPhoto({
       resultType: CameraResultType.Uri,
       source: CameraSource.Camera,
       quality: 100
@@ -44,24 +43,24 @@ export function usePhotoGallery() {
     const savedFileImage = await savePicture(cameraPhoto, fileName);
     const newPhotos = [savedFileImage, ...photos];
     setPhotos(newPhotos);
-    set(PHOTO_STORAGE, JSON.stringify(newPhotos));
+    Storage.set({key: PHOTO_STORAGE,value: JSON.stringify(newPhotos)});
   };
 
-  const savePicture = async (photo: CameraPhoto, fileName: string): Promise<Photo> => {
+  const savePicture = async (photo: Photo, fileName: string): Promise<UserPhoto> => {
     let base64Data: string;
     // "hybrid" will detect Cordova or Capacitor;
     if (isPlatform('hybrid')) {
-      const file = await readFile({
+      const file = await Filesystem.readFile({
         path: photo.path!
       });
       base64Data = file.data;
     } else {
       base64Data = await base64FromPath(photo.webPath!);
     }
-    const savedFile = await writeFile({
+    const savedFile = await Filesystem.writeFile({
       path: fileName,
       data: base64Data,
-      directory: FilesystemDirectory.Data
+      directory: Directory.Data
     });
 
     if (isPlatform('hybrid')) {
@@ -73,7 +72,7 @@ export function usePhotoGallery() {
       };
     }
     else {
-      // Use webPath to display the new image instead of base64 since it's 
+      // Use webPath to display the new image instead of base64 since it's
       // already loaded into memory
       return {
         filepath: fileName,
@@ -82,18 +81,18 @@ export function usePhotoGallery() {
     }
   };
 
-  const deletePhoto = async (photo: Photo) => {
+  const deletePhoto = async (photo: UserPhoto) => {
     // Remove this photo from the Photos reference data array
     const newPhotos = photos.filter(p => p.filepath !== photo.filepath);
 
     // Update photos array cache by overwriting the existing photo array
-    set(PHOTO_STORAGE, JSON.stringify(newPhotos));
+    Storage.set({key: PHOTO_STORAGE, value: JSON.stringify(newPhotos) });
 
     // delete photo file from filesystem
     const filename = photo.filepath.substr(photo.filepath.lastIndexOf('/') + 1);
-    await deleteFile({
+    await Filesystem.deleteFile({
       path: filename,
-      directory: FilesystemDirectory.Data
+      directory: Directory.Data
     });
     setPhotos(newPhotos);
   };
@@ -105,8 +104,24 @@ export function usePhotoGallery() {
   };
 }
 
-export interface Photo {
+export interface UserPhoto {
   filepath: string;
   webviewPath?: string;
 }
 
+export async function base64FromPath(path: string): Promise<string> {
+  const response = await fetch(path);
+  const blob = await response.blob();
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = reject;
+    reader.onload = () => {
+      if (typeof reader.result === 'string') {
+        resolve(reader.result);
+      } else {
+        reject('method did not return a string')
+      }
+    };
+    reader.readAsDataURL(blob);
+  });
+}
