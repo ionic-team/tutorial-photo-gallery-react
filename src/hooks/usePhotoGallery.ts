@@ -3,8 +3,8 @@ import { isPlatform } from '@ionic/react';
 
 
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
-import { Filesystem, Directory } from '@capacitor/filesystem'
-import { Storage } from '@capacitor/storage'
+import { Filesystem, Directory } from '@capacitor/filesystem';
+import { Preferences } from '@capacitor/preferences';
 import { Capacitor } from '@capacitor/core';
 
 const PHOTO_STORAGE = 'photos';
@@ -14,12 +14,12 @@ export function usePhotoGallery() {
 
   useEffect(() => {
     const loadSaved = async () => {
-      const { value } = await Storage.get({key: PHOTO_STORAGE });
+      const { value } = await Preferences.get({key: PHOTO_STORAGE });
 
-      const photosInStorage = (value ? JSON.parse(value) : []) as UserPhoto[];
+      const photosInPreferences = (value ? JSON.parse(value) : []) as UserPhoto[];
       // If running on the web...
       if (!isPlatform('hybrid')) {
-        for (let photo of photosInStorage) {
+        for (let photo of photosInPreferences) {
           const file = await Filesystem.readFile({
             path: photo.filepath,
             directory: Directory.Data
@@ -28,7 +28,7 @@ export function usePhotoGallery() {
           photo.webviewPath = `data:image/jpeg;base64,${file.data}`;
         }
       }
-      setPhotos(photosInStorage);
+      setPhotos(photosInPreferences);
     };
     loadSaved();
   }, []);
@@ -43,7 +43,7 @@ export function usePhotoGallery() {
     const savedFileImage = await savePicture(photo, fileName);
     const newPhotos = [savedFileImage, ...photos];
     setPhotos(newPhotos);
-    Storage.set({key: PHOTO_STORAGE,value: JSON.stringify(newPhotos)});
+    Preferences.set({key: PHOTO_STORAGE,value: JSON.stringify(newPhotos)});
   };
 
   const savePicture = async (photo: Photo, fileName: string): Promise<UserPhoto> => {
@@ -86,7 +86,7 @@ export function usePhotoGallery() {
     const newPhotos = photos.filter(p => p.filepath !== photo.filepath);
 
     // Update photos array cache by overwriting the existing photo array
-    Storage.set({key: PHOTO_STORAGE, value: JSON.stringify(newPhotos) });
+    Preferences.set({key: PHOTO_STORAGE, value: JSON.stringify(newPhotos) });
 
     // delete photo file from filesystem
     const filename = photo.filepath.substr(photo.filepath.lastIndexOf('/') + 1);
