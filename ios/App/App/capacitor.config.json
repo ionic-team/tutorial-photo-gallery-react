@@ -1,8 +1,8 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "photo-gallery-capacitor-react",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "build",
-  "cordova": {}
+	"appId": "io.ionic.demo.pg.react",
+	"appName": "React Photo Gallery",
+	"bundledWebRuntime": false,
+	"npmClient": "npm",
+	"webDir": "build",
+	"cordova": {}
 }
