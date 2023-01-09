@@ -7,7 +7,8 @@ import {
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
-  IonTabs
+  IonTabs,
+  setupIonicReact,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { square, triangle, images } from 'ionicons/icons';
@@ -37,6 +38,8 @@ import './theme/variables.css';
 
 /* Global CSS */
 import './global.css';
+
+setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
