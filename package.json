@@ -68,7 +68,7 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "^4.0.0"
+    "@capacitor/cli": "^4.8.0"
   },
   "description": "Build a photo gallery app that runs on iOS, Android, and the web - with just one codebase."
 }
