@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">React Photo Gallery</string>
-    <string name="title_activity_main">React Photo Gallery</string>
+    <string name="app_name">photo-gallery-capacitor-react</string>
+    <string name="title_activity_main">photo-gallery-capacitor-react</string>
     <string name="package_name">io.ionic.demo.pg.react</string>
     <string name="custom_url_scheme">io.ionic.demo.pg.react</string>
 </resources>
