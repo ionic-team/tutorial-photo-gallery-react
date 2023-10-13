@@ -1,5 +1,5 @@
 {
-  "name": "tutorial-photo-gallery-react",
+  "name": "photo-gallery-capacitor-react",
   "integrations": {
     "capacitor": {}
   },

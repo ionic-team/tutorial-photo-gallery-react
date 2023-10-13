@@ -50,5 +50,5 @@
     "vite": "^4.3.9",
     "vitest": "^0.32.2"
   },
-  "description": "An Ionic project"
+  "description": "Build a photo gallery app that runs on iOS, Android, and the web - with just one codebase."
 }
