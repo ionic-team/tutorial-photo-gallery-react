@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">photo-gallery-capacitor-react</string>
     <string name="title_activity_main">photo-gallery-capacitor-react</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="package_name">io.ionic.demo.pg.react</string>
+    <string name="custom_url_scheme">io.ionic.demo.pg.react</string>
 </resources>
