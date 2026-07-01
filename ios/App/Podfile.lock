@@ -49,16 +49,16 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/status-bar"
 
 SPEC CHECKSUMS:
-  Capacitor: 57890b363df14d5d2d5d8461aa23e886cb34da2a
-  CapacitorApp: 024e1b1bea5f883d79f6330d309bc441c88ad04a
-  CapacitorCamera: 084b0b228bba7d00587910337b1c89e93b1d32ab
+  Capacitor: 018b78e70c892da9e2ca16481978c3ce09fa491a
+  CapacitorApp: 3bef09d0bbb9698fd1766398499f306647156bbf
+  CapacitorCamera: d0197014a35cff3a591f0da7f04fba3e2f5f9be8
   CapacitorCordova: 3d3908a3d208a11a75f9df3b18c4405c4de76e1d
-  CapacitorFilesystem: 38e85e56818420bed3f0aa1b77128f503a960821
-  CapacitorHaptics: 1fffc1217c7e64a472d7845be50fb0c2f7d4204c
-  CapacitorKeyboard: b978154b024a5f65e044908e37d15b7de58b9d12
-  CapacitorPreferences: f03954bcb0ff09c792909e46bff88e3183c16b10
-  CapacitorStatusBar: 565c0a1ebd79bb40d797606a8992b4a105885309
+  CapacitorFilesystem: 3084b1856627ffa7eb60fa2d238cd83528478438
+  CapacitorHaptics: c56885bd07919be808b38db507507919ce4d1b09
+  CapacitorKeyboard: 673a4a303383a61f4d360c871f121f8bbaa745b6
+  CapacitorPreferences: f78fba9eb9a2c3bd6d7014c1cfa4174e53832caa
+  CapacitorStatusBar: f7e05ad7e5fb1a1cdacd2f0b55d488550ca07c41
 
 PODFILE CHECKSUM: 645c6f0ebd6fe237b8c3df63febaa44115e4826d
 
-COCOAPODS: 1.13.0
+COCOAPODS: 1.16.2
