@@ -26,7 +26,7 @@ const Tab2: React.FC = () => {
             {photos.map((photo, index) => (
               <IonCol size="6" key={index}>
                 <button onClick={() => setPhotoToDelete(photo)}>
-                  <img src={photo.webviewPath} alt={`Photo ${index + 1}`} loading="lazy"/>
+                  <img src={photo.webviewPath} alt={`Photo ${index + 1}`} loading="lazy" />
                 </button>
               </IonCol>
             ))}
