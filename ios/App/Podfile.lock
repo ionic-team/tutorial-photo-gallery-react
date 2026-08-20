@@ -1,21 +1,25 @@
 PODS:
-  - Capacitor (5.5.0):
+  - Capacitor (8.5.0):
     - CapacitorCordova
-  - CapacitorApp (5.0.6):
+  - CapacitorApp (8.1.1):
     - Capacitor
-  - CapacitorCamera (5.0.7):
+  - CapacitorCamera (8.2.3):
     - Capacitor
-  - CapacitorCordova (5.5.0)
-  - CapacitorFilesystem (5.1.1):
+    - IONCameraLib (~> 1.0.5)
+  - CapacitorCordova (8.5.0)
+  - CapacitorFilesystem (8.1.3):
     - Capacitor
-  - CapacitorHaptics (5.0.6):
+    - IONFilesystemLib (~> 1.1.1)
+  - CapacitorHaptics (8.0.2):
     - Capacitor
-  - CapacitorKeyboard (5.0.6):
+  - CapacitorKeyboard (8.0.5):
     - Capacitor
-  - CapacitorPreferences (5.0.6):
+  - CapacitorPreferences (8.0.1):
     - Capacitor
-  - CapacitorStatusBar (5.0.6):
+  - CapacitorStatusBar (8.0.3):
     - Capacitor
+  - IONCameraLib (1.0.5)
+  - IONFilesystemLib (1.1.2)
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
@@ -27,6 +31,11 @@ DEPENDENCIES:
   - "CapacitorKeyboard (from `../../node_modules/@capacitor/keyboard`)"
   - "CapacitorPreferences (from `../../node_modules/@capacitor/preferences`)"
   - "CapacitorStatusBar (from `../../node_modules/@capacitor/status-bar`)"
+
+SPEC REPOS:
+  trunk:
+    - IONCameraLib
+    - IONFilesystemLib
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -49,16 +58,18 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/status-bar"
 
 SPEC CHECKSUMS:
-  Capacitor: 018b78e70c892da9e2ca16481978c3ce09fa491a
-  CapacitorApp: 3bef09d0bbb9698fd1766398499f306647156bbf
-  CapacitorCamera: d0197014a35cff3a591f0da7f04fba3e2f5f9be8
-  CapacitorCordova: 3d3908a3d208a11a75f9df3b18c4405c4de76e1d
-  CapacitorFilesystem: 3084b1856627ffa7eb60fa2d238cd83528478438
-  CapacitorHaptics: c56885bd07919be808b38db507507919ce4d1b09
-  CapacitorKeyboard: 673a4a303383a61f4d360c871f121f8bbaa745b6
-  CapacitorPreferences: f78fba9eb9a2c3bd6d7014c1cfa4174e53832caa
-  CapacitorStatusBar: f7e05ad7e5fb1a1cdacd2f0b55d488550ca07c41
+  Capacitor: 00b87168591cc006ea6f5c0de681ec5c39a2c8eb
+  CapacitorApp: 305bd13c44f6f9d164e2ee66a4faa956ed8c0e06
+  CapacitorCamera: 25827828645de22787c64ed8d1ea555e5b3ea242
+  CapacitorCordova: 9d3acbb574048e7167d2af127a0af2123e619f2f
+  CapacitorFilesystem: b2bbd84bb91c177906c9dbc252864cb71ab9957b
+  CapacitorHaptics: 296f771ecd89c7a1bd92a7b6826a7d268e2e70f5
+  CapacitorKeyboard: b6b0744890cdb1d9a96e2cafcc9253fdcc55de3b
+  CapacitorPreferences: cca2021f386efb75947c850334447d9ff22b14f1
+  CapacitorStatusBar: eca7bc2b58d9f886f1ef9edb66e57a9b29c121af
+  IONCameraLib: ecbd8ef0077d481df429cee267bbeb1a7b9bddd0
+  IONFilesystemLib: 21a63377696b2d8fab5632ecfb7d2ac67bddb68a
 
-PODFILE CHECKSUM: 645c6f0ebd6fe237b8c3df63febaa44115e4826d
+PODFILE CHECKSUM: bfc80ff7fd6c2ab1707d95794a58c07d81e03bec
 
-COCOAPODS: 1.16.2
+COCOAPODS: 1.17.0
