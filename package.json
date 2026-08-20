@@ -23,8 +23,8 @@
     "@capacitor/preferences": "^5.0.6",
     "@capacitor/status-bar": "5.0.6",
     "@ionic/pwa-elements": "^3.2.2",
-    "@ionic/react": "8.8.11-dev.11782911278.11f0315e",
-    "@ionic/react-router": "8.8.11-dev.11782911278.11f0315e",
+    "@ionic/react": "^9.0.0",
+    "@ionic/react-router": "^9.0.0",
     "ionicons": "^7.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -39,15 +39,14 @@
     "@testing-library/user-event": "^14.4.3",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
-    "@vitejs/plugin-legacy": "^4.0.2",
-    "@vitejs/plugin-react": "^4.0.1",
-    "cypress": "^12.7.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "cypress": "^15.21.0",
     "eslint": "^8.35.0",
     "eslint-plugin-react": "^7.32.2",
     "jsdom": "^22.1.0",
+    "terser": "^5.50.0",
     "typescript": "^5.1.6",
-    "vite": "^4.3.9",
-    "vitest": "^0.32.2"
-  },
-  "description": "Build a photo gallery app that runs on iOS, Android, and the web - with just one codebase."
+    "vite": "^8.1.0",
+    "vitest": "^4.1.9"
+  }
 }

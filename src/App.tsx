@@ -38,7 +38,7 @@ setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
           <Route path="/tab1" element={<Tab1 />} />
