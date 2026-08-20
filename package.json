@@ -44,7 +44,6 @@
     "eslint": "^8.35.0",
     "eslint-plugin-react": "^7.32.2",
     "jsdom": "^22.1.0",
-    "terser": "^5.50.0",
     "typescript": "^5.1.6",
     "vite": "^8.1.0",
     "vitest": "^4.1.9"
