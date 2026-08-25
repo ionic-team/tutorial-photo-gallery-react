@@ -46,6 +46,11 @@
     {
       "matchPackageNames": ["eslint", "eslint-plugin-react", "typescript"],
       "groupName": "dev-tools"
+    },
+    {
+      "matchPackageNames": ["eslint"],
+      "allowedVersions": "<10",
+      "description": "eslint-plugin-react@7 requires eslint <10. Raise this when eslint-plugin-react widens its eslint range."
     }
   ]
 }
