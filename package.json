@@ -42,7 +42,7 @@
     "@testing-library/user-event": "^14.4.3",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
-    "@vitejs/plugin-react": "^5.0.0",
+    "@vitejs/plugin-react": "^6.0.0",
     "cypress": "^15.21.0",
     "eslint": "^8.35.0",
     "eslint-plugin-react": "^7.32.2",
