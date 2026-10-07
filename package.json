@@ -37,18 +37,18 @@
   "devDependencies": {
     "@capacitor/cli": "^8.5.0",
     "@testing-library/dom": "^10.0.0",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/jest-dom": "^7.0.0",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^6.0.0",
-    "cypress": "^15.21.0",
+    "cypress": "^16.0.0",
     "eslint": "^8.35.0",
     "eslint-plugin-react": "^7.32.2",
-    "jsdom": "^22.1.0",
+    "jsdom": "^30.0.0",
     "typescript": "^5.1.6",
     "vite": "^8.1.0",
-    "vitest": "^4.1.9"
+    "vitest": "^5.0.0"
   }
 }
