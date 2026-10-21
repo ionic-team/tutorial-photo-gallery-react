@@ -1,5 +1,5 @@
 {
-  "name": "photo-gallery-capacitor-react",
+  "name": "tutorial-photo-gallery-react",
   "private": true,
   "version": "4.0.0",
   "type": "module",
@@ -24,6 +24,7 @@
     "@capacitor/ios": "^8.5.0",
     "@capacitor/keyboard": "^8.0.5",
     "@capacitor/preferences": "^8.0.1",
+    "@capacitor/splash-screen": "^8.0.2",
     "@capacitor/status-bar": "^8.0.3",
     "@ionic/pwa-elements": "^3.2.2",
     "@ionic/react": "^9.0.0",
