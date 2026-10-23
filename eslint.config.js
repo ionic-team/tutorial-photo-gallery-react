@@ -5,7 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 
 export default defineConfig([
-  { ignores: ['dist/**', 'android/**', 'ios/**', 'cypress.config.ts'] },
+  { ignores: ['dist/**', 'android/**', 'ios/**'] },
   ionic,
   {
     files: ['**/*.{ts,tsx}'],
