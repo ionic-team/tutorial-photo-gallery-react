@@ -39,8 +39,8 @@
       "matchPackageNames": [
         "@testing-library/**",
         "vitest",
-        "cypress",
-        "jsdom"
+        "jsdom",
+        "@playwright/test"
       ],
       "groupName": "testing"
     },
