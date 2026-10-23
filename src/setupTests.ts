@@ -1,16 +1,18 @@
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
-import '@testing-library/jest-dom/extend-expect';
+// Adds jest-dom's DOM matchers (toBeInTheDocument, toHaveTextContent, ...) to Vitest's expect.
+import '@testing-library/jest-dom/vitest';
 
-// Mock matchmedia
+// jsdom doesn't implement matchMedia, which Ionic uses for platform and dark mode checks.
 window.matchMedia =
   window.matchMedia ||
-  function () {
+  function (query: string): MediaQueryList {
     return {
       matches: false,
-      addListener: function () {},
-      removeListener: function () {},
+      media: query,
+      onchange: null,
+      addListener: () => undefined,
+      removeListener: () => undefined,
+      addEventListener: () => undefined,
+      removeEventListener: () => undefined,
+      dispatchEvent: () => false,
     };
   };
