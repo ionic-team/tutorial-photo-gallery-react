@@ -7,7 +7,11 @@ import { isPlatform } from '@ionic/react';
 import { useState, useEffect } from 'react';
 
 const PHOTO_STORAGE = 'photos';
-export function usePhotoGallery() {
+export function usePhotoGallery(): {
+  deletePhoto: (photo: UserPhoto) => Promise<void>;
+  photos: UserPhoto[];
+  takePhoto: () => Promise<void>;
+} {
   const [photos, setPhotos] = useState<UserPhoto[]>([]);
 
   useEffect(() => {

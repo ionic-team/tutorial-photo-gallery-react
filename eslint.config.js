@@ -13,9 +13,5 @@ export default defineConfig([
     languageOptions: {
       globals: globals.browser,
     },
-    rules: {
-      // Ionic's base level; `recommended` makes it an error, which is meant for libraries.
-      '@typescript-eslint/explicit-module-boundary-types': 'warn',
-    },
   },
 ]);
