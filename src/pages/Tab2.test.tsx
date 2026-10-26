@@ -9,7 +9,7 @@ import Tab2 from './Tab2';
 
 const gallery = vi.hoisted(() => ({
   photos: [] as UserPhoto[],
-  takePhoto: vi.fn(),
+  addNewToGallery: vi.fn(),
   deletePhoto: vi.fn(),
 }));
 
@@ -42,7 +42,7 @@ describe('Tab2', () => {
 
     fireEvent.click(container.querySelector('ion-fab-button') as Element);
 
-    expect(gallery.takePhoto).toHaveBeenCalledTimes(1);
+    expect(gallery.addNewToGallery).toHaveBeenCalledTimes(1);
   });
 
   it('opens the photo actions when a photo is tapped', async () => {
