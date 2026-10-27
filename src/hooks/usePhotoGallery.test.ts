@@ -93,7 +93,7 @@ describe('loading saved photos', () => {
   });
 });
 
-describe('takePhoto', () => {
+describe('addNewToGallery', () => {
   it('saves a web photo and adds it to the front of the gallery', async () => {
     const { result } = await renderGallery([{ filepath: 'older.jpeg' }]);
     await waitFor(() => expect(result.current.photos).toHaveLength(1));
@@ -104,7 +104,7 @@ describe('takePhoto', () => {
       vi.fn().mockResolvedValue({ blob: async () => new Blob(['image-bytes'], { type: 'image/jpeg' }) }),
     );
 
-    await act(() => result.current.takePhoto());
+    await act(() => result.current.addNewToGallery());
 
     expect(Camera.getPhoto).toHaveBeenCalledWith({ resultType: 'uri', source: 'CAMERA', quality: 100 });
     expect(Filesystem.writeFile).toHaveBeenCalledWith({
@@ -145,7 +145,7 @@ describe('takePhoto', () => {
       },
     );
 
-    await expect(act(() => result.current.takePhoto())).rejects.toBeDefined();
+    await expect(act(() => result.current.addNewToGallery())).rejects.toBeDefined();
 
     expect(Filesystem.writeFile).not.toHaveBeenCalled();
     expect(result.current.photos).toEqual([]);
@@ -163,7 +163,7 @@ describe('takePhoto', () => {
     });
     vi.mocked(Filesystem.readFile).mockResolvedValue({ data: 'BASE64DATA' });
 
-    await act(() => result.current.takePhoto());
+    await act(() => result.current.addNewToGallery());
 
     expect(Filesystem.readFile).toHaveBeenCalledWith({ path: 'file:///tmp/photo.jpeg' });
     expect(Filesystem.writeFile).toHaveBeenCalledWith({ path: `${NOW}.jpeg`, data: 'BASE64DATA', directory: 'DATA' });
@@ -172,15 +172,16 @@ describe('takePhoto', () => {
     ]);
   });
 
-  it('converts native file data returned as a Blob to text', async () => {
+  it('passes native file data returned as a Blob through to the filesystem unchanged', async () => {
     setHybrid(true);
     const { result } = await renderGallery(null);
     vi.mocked(Camera.getPhoto).mockResolvedValue({ path: 'file:///tmp/photo.jpeg', format: 'jpeg', saved: false });
-    vi.mocked(Filesystem.readFile).mockResolvedValue({ data: new Blob(['BLOBDATA']) });
+    const data = new Blob(['BLOBDATA']);
+    vi.mocked(Filesystem.readFile).mockResolvedValue({ data });
 
-    await act(() => result.current.takePhoto());
+    await act(() => result.current.addNewToGallery());
 
-    expect(Filesystem.writeFile).toHaveBeenCalledWith(expect.objectContaining({ data: 'BLOBDATA' }));
+    expect(vi.mocked(Filesystem.writeFile).mock.calls[0][0].data).toBe(data);
   });
 });
 

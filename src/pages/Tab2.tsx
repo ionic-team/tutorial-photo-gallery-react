@@ -13,14 +13,14 @@ import {
   IonActionSheet,
 } from '@ionic/react';
 import { camera, trash, close } from 'ionicons/icons';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import type { UserPhoto } from '../hooks/usePhotoGallery';
 import { usePhotoGallery } from '../hooks/usePhotoGallery';
 import './Tab2.css';
 
 const Tab2: React.FC = () => {
-  const { deletePhoto, photos, takePhoto } = usePhotoGallery();
+  const { photos, addNewToGallery, deletePhoto } = usePhotoGallery();
   const [photoToDelete, setPhotoToDelete] = useState<UserPhoto>();
 
   return (
@@ -30,12 +30,13 @@ const Tab2: React.FC = () => {
           <IonTitle>Photo Gallery</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Photo Gallery</IonTitle>
           </IonToolbar>
         </IonHeader>
+
         <IonGrid>
           <IonRow>
             {photos.map((photo, index) => (
@@ -49,7 +50,7 @@ const Tab2: React.FC = () => {
         </IonGrid>
 
         <IonFab vertical="bottom" horizontal="center" slot="fixed">
-          <IonFabButton onClick={() => takePhoto()}>
+          <IonFabButton onClick={() => addNewToGallery()}>
             <IonIcon icon={camera}></IonIcon>
           </IonFabButton>
         </IonFab>
@@ -72,10 +73,13 @@ const Tab2: React.FC = () => {
               text: 'Cancel',
               icon: close,
               role: 'cancel',
+              handler: () => {
+                // Nothing to do, action sheet is automatically closed
+              },
             },
           ]}
           onDidDismiss={() => setPhotoToDelete(undefined)}
-        />
+        ></IonActionSheet>
       </IonContent>
     </IonPage>
   );
