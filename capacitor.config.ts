@@ -1,11 +1,11 @@
-import { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.tutorial.photogallery.react',
   appName: 'tutorial-photo-gallery-react',
   webDir: 'dist',
   server: {
-    androidScheme: 'https'
+    androidScheme: 'https',
   },
   plugins: {
     SplashScreen: {
