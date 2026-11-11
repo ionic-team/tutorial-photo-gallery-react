@@ -62,11 +62,6 @@
       "groupName": "dev-tools"
     },
     {
-      "matchPackageNames": ["@types/node"],
-      "allowedVersions": "<25",
-      "description": "Keep Node's types on the major version CI runs (24)"
-    },
-    {
       "matchPackageNames": ["typescript"],
       "allowedVersions": "<6.0.0",
       "description": "Stay on the starter's TypeScript 5.x. typescript-eslint doesn't support TypeScript 7 yet."
